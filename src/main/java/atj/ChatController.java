@@ -95,7 +95,7 @@ public class ChatController  implements AutoCloseable{
 		this.port = port;
 	}
 	public void run() {
-		while(true) {
+		
 			try {
 				socket = new Socket(host, port);
 				inputBufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
@@ -132,11 +132,11 @@ public class ChatController  implements AutoCloseable{
 			}
 			
 		}
-	}
+	
 	private String receiveMessage() throws IOException { return inputBufferedReader.readLine(); }
 	
-	private void sendMessage(String userName2) {
-		// TODO Auto-generated method stub
+	private void sendMessage(String message) {
+		outputPrintWriter.println(message);
 		
 	}
 	@Override

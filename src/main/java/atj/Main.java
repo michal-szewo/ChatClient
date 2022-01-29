@@ -53,17 +53,7 @@ public class Main extends Application {
 		e1.printStackTrace();
 	}}
 	
-	/*
-	 * public void mainWindow() { FXMLLoader loader = new FXMLLoader(
-	 * Main.class.getResource("Chat.fxml")); try { AnchorPane pane=loader.load();
-	 * primaryStage.setMinWidth(820); primaryStage.setMinHeight(620); Scene
-	 * scene=new Scene(pane); ChatController ChatController=loader.getController();
-	 * //ChatController.setMain(this);
-	 * //mainWindowController.setPrimaryStage(primaryStage);
-	 * primaryStage.setTitle("Chat"); primaryStage.setScene(scene);
-	 * primaryStage.show(); } catch (IOException e) { // TODO Auto-generated catch
-	 * block e.printStackTrace(); } }
-	 */
+	
 	
 	public static void main(String[] args) {
 		launch(args);
