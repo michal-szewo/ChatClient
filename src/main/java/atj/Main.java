@@ -28,9 +28,9 @@ public class Main extends Application {
         ViewLoader<AnchorPane, ChatController> viewLoader = new ViewLoader<>("Chat.fxml");
         viewLoader.getController().setUserName(getUserName());
         viewLoader.getController().setHost("localhost");
-        //viewLoader.getController().setPort(9001);
-        //viewLoader.getController().run();
-        Scene scene = new Scene(viewLoader.getLayout());
+        viewLoader.getController().setPort(10001);
+        viewLoader.getController().run();
+        Scene scene = new Scene(viewLoader.getLayout(),450,600);
         primaryStage.setScene(scene);
         primaryStage.setTitle(appName);
         primaryStage.setOnHiding( e -> primaryStage_Hiding(e, viewLoader.getController()));
@@ -40,7 +40,7 @@ public class Main extends Application {
 		TextInputDialog textInputDialog = new TextInputDialog("Anonymous");
 		textInputDialog.setTitle("");
 		textInputDialog.setHeaderText("");
-		textInputDialog.setContentText("");
+		textInputDialog.setContentText("Twoje imię");
 		Optional<String> result = textInputDialog.showAndWait();
 		return result.orElse("Anonymous");
 		}
