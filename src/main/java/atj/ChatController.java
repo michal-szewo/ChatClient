@@ -56,8 +56,8 @@ public class ChatController  implements AutoCloseable{
 		Parser.xmlParser()
 	);
 	webViewMessages.getEngine().loadContent(messagesLayout.html());
-	webViewMessages.getEngine().setUserStyleSheetLocation(
-	getClass().getResource("application.css").toString());
+	//webViewMessages.getEngine().setUserStyleSheetLocation(
+	//getClass().getResource("application.css").toString());
 	}
 	public String getUserName() {
 		return userName;
