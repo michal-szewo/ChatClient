@@ -111,7 +111,8 @@ public class ChatController  implements AutoCloseable{
 								return null;
 							}
 							String msg = receiveMessage();
-							showMessage(toHTML(decodeUID(msg), "response"));
+							String decodedMsg = decodeUID(msg);
+							showMessage(toHTML(decodedMsg, "response"));
 							System.out.println(msg);
 							Thread.sleep(100);
 						}
@@ -152,6 +153,7 @@ public class ChatController  implements AutoCloseable{
 	private void sendImageView_MouseReleased() {
 		if (messageTextField.getLength() == 0) return;
 		sendMessage(messageTextField.getText());
+		//showMessage(toHTML(messageTextField.getText(), "request"));
 		showMessage(toHTML(messageTextField.getText(), "request"));
 		messageTextField.clear();
 	}
@@ -183,7 +185,11 @@ public class ChatController  implements AutoCloseable{
 	
 		if (msgClass.equals("request")) {
 			image.attr("src", getClass().getResource("harveyspecter.png").toString());
-			new Element("span").attr("class", "author").append(userName).appendTo(wrapper);
+			//new Element("span").attr("class", "author").append(senderName).appendTo(wrapper);
+		}
+		if (msgClass.equals("response")) {
+			image.attr("src", getClass().getResource("mikeross.png").toString());
+			new Element("span").attr("class", "author").append(senderName).appendTo(wrapper);
 		}
 		image.appendTo(wrapper);
 		Element message_div = new Element("div").attr("class", "message").appendTo(wrapper);
@@ -194,7 +200,8 @@ public class ChatController  implements AutoCloseable{
 		msg = msg.substring(PROTOCOL_PREFIX_LENGTH);
 		char sep = (char) 31;
 		String[] param = msg.split(String.valueOf(sep));
-		senderName = param[0];
+		this.senderName = param[0];
+		//System.out.println("senderName: "+ senderName);
 		return msg.substring(param[0].length() + 1);
 	}	
 
