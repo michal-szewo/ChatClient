@@ -8,12 +8,12 @@
 *.ear
 *.zip
 # Eclipse #
-/.project
-/.settings
+.project
+.settings
 bin/**
 # Maven #
 target/
-/.mvn
-/.maven
-/.repository
+.mvn
+.maven
+.repository
 .flattened-pom.xml
