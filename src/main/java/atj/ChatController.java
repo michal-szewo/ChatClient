@@ -183,7 +183,7 @@ public class ChatController  implements AutoCloseable{
 	
 		if (msgClass.equals("request")) {
 			image.attr("src", getClass().getResource("harveyspecter.png").toString());
-			new Element("span").attr("class", "author").append(senderName).appendTo(wrapper);
+			new Element("span").attr("class", "author").append(userName).appendTo(wrapper);
 		}
 		image.appendTo(wrapper);
 		Element message_div = new Element("div").attr("class", "message").appendTo(wrapper);
