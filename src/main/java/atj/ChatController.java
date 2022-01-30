@@ -64,8 +64,8 @@ public class ChatController  implements AutoCloseable{
 		Parser.xmlParser()
 	);
 	webViewMessages.getEngine().loadContent(messagesLayout.html());
-	//webViewMessages.getEngine().setUserStyleSheetLocation(
-	//getClass().getResource("application.css").toString());
+	webViewMessages.getEngine().setUserStyleSheetLocation(
+	getClass().getResource("application.css").toString());
 	}
 	public String getUserName() {
 		return userName;
@@ -73,11 +73,12 @@ public class ChatController  implements AutoCloseable{
 	public void setUserName(String userName) {
 		this.userName = userName;
 		welcomeLabel.setText("Hello " + this.userName + "!");
-		/*
-		 * Image myImage = new Image(new
-		 * File("res/harveyspecter.png").toURI().toString()); ImagePattern pattern = new
-		 * ImagePattern(myImage); circleImage.setFill(pattern);
-		 */ 
+		
+		//Image myImage = new Image(new File("harveyspecter.png").toURI().toString());
+		Image myImage = new Image(getClass().getResource("harveyspecter.png").toString());
+		ImagePattern pattern = new ImagePattern(myImage);
+		circleImage.setFill(pattern);
+		 
 	}
 	public String getHost() {
 		return host;
@@ -176,16 +177,15 @@ public class ChatController  implements AutoCloseable{
 		System.out.println("toHTML:" + message);
 		
 		Element wrapper = new Element("li").attr("class", msgClass);
-		/*
-		 * Element image = new Element("img").attr("class", "avatar").attr("src", new
-		 * File("res/mikeross.png").toURI().toString());
-		 */
+		
+		Element image = new Element("img").attr("class", "avatar").attr("src", getClass().getResource("mikeross.png").toString());
+		
 	
 		if (msgClass.equals("request")) {
-			//image.attr("src", new File("res/harveyspecter.png").toURI().toString());
+			image.attr("src", getClass().getResource("harveyspecter.png").toString());
 			new Element("span").attr("class", "author").append(senderName).appendTo(wrapper);
 		}
-		//image.appendTo(wrapper);
+		image.appendTo(wrapper);
 		Element message_div = new Element("div").attr("class", "message").appendTo(wrapper);
 		new Element("div").attr("class", "content").append(message).appendTo(message_div);
 		return wrapper;
